@@ -1,0 +1,19 @@
+name: 'local-cache-clean'
+description: "A Github Action to clean cache files from action-local-cache action"
+inputs:
+  key:
+    description: 'An explicit key for versioning the cache'
+    required: false
+  path:
+    description: 'The file or folder to be cached'
+    required: true
+  strategy:
+    description: 'Caching mechanism to be used'
+    required: false
+    default: 'move'
+outputs:
+  cache-hit:
+    description: 'A boolean value to indicate if cache was found and restored'
+runs:
+  using: 'node16'
+  main: 'dist/main.js'
